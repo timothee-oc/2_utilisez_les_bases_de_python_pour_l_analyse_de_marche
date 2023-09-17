@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import csv
 
 product_page_url = "http://books.toscrape.com/catalogue/a-light-in-the-attic_1000/index.html"
 
@@ -19,4 +20,11 @@ category = soup.find(class_='active').find_previous_sibling().get_text().strip()
 review_rating = soup.find(class_='star-rating')['class'][1]
 image_url = "http://books.toscrape.com/" + soup.find('img')['src'].split('../../')[1]
 
-#print(image_url)
+en_tete = ["product_page_url", "universal_ product_code (upc)", "title", "price_including_tax", "price_excluding_tax",
+            "number_available", "product_description", "category", "review_rating", "image_url"]
+
+with open("books_data.csv", "w") as output_csv_file:
+    writer = csv.writer(output_csv_file, delimiter=',')
+    writer.writerow(en_tete)
+    writer.writerow([product_page_url, universal_product_code, title, price_including_tax, price_excluding_tax,
+                     number_available, product_description, category, review_rating, image_url])
