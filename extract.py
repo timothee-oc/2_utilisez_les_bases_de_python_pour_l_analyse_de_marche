@@ -3,6 +3,7 @@ from bs4 import BeautifulSoup
 import csv
 import re
 import os
+from tqdm import tqdm
 
 def get_numeric_rating(review_rating):
     match review_rating:
@@ -37,7 +38,6 @@ def extract_book_data(book_page_soup):
         product_description = book_page_soup.find(id='product_description').find_next_sibling().get_text()
     except AttributeError:
         product_description = "Aucune description"
-        print("Aucune description trouvée pour le livre:", title, "(catégorie:", category, ")")
 
     all_table_data = book_page_soup.find_all('td')
 
@@ -83,7 +83,7 @@ all_categories_indexes = get_all_categories_indexes(home_page_soup)
 en_tete = ["product_page_url", "universal_ product_code (upc)", "title", "price_including_tax", "price_excluding_tax", 
            "number_available", "product_description", "category", "review_rating", "image_url"]
 
-for category_index in all_categories_indexes:
+for category_index in tqdm(all_categories_indexes, desc="categories"):
     category_base_url = category_index.replace("index.html", '')
     category_name = category_index.split('/')[-2].split('_')[0].replace('-', '_')
 
