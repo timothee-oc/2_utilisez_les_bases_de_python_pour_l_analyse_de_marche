@@ -1,3 +1,5 @@
+# Same program than on main branch but using OOP
+
 # Instructions
 
 * Install Python (version >= 3.11.5), and make sure pip is correctly installed alongside (version >= 23.2.1)
