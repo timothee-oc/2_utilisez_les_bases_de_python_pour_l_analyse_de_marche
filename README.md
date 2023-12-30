@@ -1,16 +1,16 @@
 # Instructions
 
-* Installez Python (version >= 3.11.5), et assurez vous que pip est bien installé avec (version >= 23.2.1)
-* Clonez ce repo dans un répertoire local
-* Créez un environnement virtuel avec la commande : `py -m venv env`
-* Entrez dans votre environnement virtuel avec la commande : `.\env\Scripts\activate`
-* Installez les librairies du fichier **requirements.txt** dans votre environnement virtuel avec la commande `pip install -r requirements.txt`
-* Exécutez le script python **extract.py** avec la commande `py extract.py`
+* Install Python (version >= 3.11.5), and make sure pip is correctly installed alongside (version >= 23.2.1)
+* Clone this repo in a local directory
+* Create a virtual environment with the command : `py -m venv env`
+* Enter this virtual environment with the command : `.\env\Scripts\activate`
+* Install required python librairies from **requirements.txt** in your virtual environment with the command : `pip install -r requirements.txt`
+* Execute the python script **extract.py** with the command : `py extract.py`
 
-# Résultats attendus
+# Expected results
 
-Ce script extrait des données à partir du site [Books to Scrape](http://books.toscrape.com/).
-Il crée un répertoire _all_extracted_data_ qui contient un sous-répetoire pour chaque catégorie de livre.
-Chaque sous-répertoire contient lui-même deux sous-répertoire:
-* Un pour les données de chaque livre de la catégorie, rassemblées dans un tableau au format .csv
-* L'autre pour les images de chacun de ces livres.
+This script extract data from the website [Books to Scrape](http://books.toscrape.com/).
+It creates a directory _extracted_data_ wich contains a sub-directory for each book category.
+Each one of these sub-directories contains :
+* A CSV file holding data of every book in the category, such as its title, its UPC code, its rating and much more !
+* A JPG image file of the each book of the category.
